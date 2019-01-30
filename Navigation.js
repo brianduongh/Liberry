@@ -3,15 +3,7 @@ import { Text, View } from 'react-native';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 
 import Scanner from './screens/Scanner';
-class HomeScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Home!</Text>
-      </View>
-    );
-  }
-}
+import HomeScreen from './screens/Home';
 
 class SettingsScreen extends React.Component {
   render() {
