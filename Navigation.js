@@ -4,16 +4,7 @@ import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 
 import Scanner from './screens/Scanner';
 import HomeScreen from './screens/Home';
-
-class SettingsScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Settings!</Text>
-      </View>
-    );
-  }
-}
+import SettingsScreen from './screens/Settings';
 
 const TabNavigator = createBottomTabNavigator({
   Home: HomeScreen,
