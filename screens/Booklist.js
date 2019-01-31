@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, SafeAreaView } from 'react-native';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 
@@ -36,9 +36,9 @@ const Booklist = ({ items }) => (
         }
 
         return data.People.map((people) => (
-          <View key={people.id}>
+          <SafeAreaView key={people.id}>
             <Text>{people.name}</Text>
-          </View>
+          </SafeAreaView>
         ));
       }
     }

@@ -26,7 +26,7 @@ class Scanner extends React.Component {
     );
   }
   componentWillUnmount() {
-    this.foucsListner.remove();
+    this.focusListner.remove();
     this.blurListner.remove();
   }
 
