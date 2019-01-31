@@ -1,21 +1,24 @@
 import React from 'react';
-import { View, Text, SafeAreaView } from 'react-native';
+import { View, SafeAreaView, ScrollView } from 'react-native';
+import { Card, Image, Text } from 'react-native-elements';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 
 export const fetchBooks = gql`
 query {
-  People (
-    distinct_on: [name],
-    order_by: [{name:desc}]
-  ) {
-    name
-    id
+  Books {
+    title
+    author
+    summary
+    cover
   }
 }
 `
 
 const Booklist = ({ items }) => (
+  <SafeAreaView>
+  <Text h3 style={{ textAlign: 'center' }}>Liberry</Text>
+  <ScrollView>
   <Query query={fetchBooks}>
     {
       ({ loading, data, error}) => {
@@ -35,14 +38,22 @@ const Booklist = ({ items }) => (
           );
         }
 
-        return data.People.map((people) => (
-          <SafeAreaView key={people.id}>
-            <Text>{people.name}</Text>
-          </SafeAreaView>
+        return data.Books.map((book, i) => (
+            <Card
+              key={i}
+              title={book.title}
+              image={{ uri: book.cover }}
+              style={{ padding: 5 }}
+            >
+              <Text>{book.author}</Text>
+              <Text>{book.summary}</Text>
+            </Card>
         ));
       }
     }
   </Query>
+  </ScrollView>
+  </SafeAreaView>
 );
 
 export default Booklist;

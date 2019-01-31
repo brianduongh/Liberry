@@ -1,10 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { BarCodeScanner, Permissions } from 'expo';
+import axios from 'axios';
 
 export default class BarcodeScannerExample extends React.Component {
   state = {
     hasCameraPermission: null,
+    title: '',
+    author: ''
   }
 
   async componentDidMount() {
@@ -32,7 +35,11 @@ export default class BarcodeScannerExample extends React.Component {
   }
 
   handleBarCodeScanned = ({ type, data }) => {
-    alert(`${data}`);
-    this.props.navigation.navigate('Home');
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${data}+isbn&key=AIzaSyCekaWwYYUa61_90Z8UVPjdoYvVAWTkqhI`)
+    .then(response => {
+      alert(response.data.items[0].volumeInfo.title);
+    })
+    .catch(error => console.log(error));
+    this.props.navigation.navigate('Books');
   }
 }

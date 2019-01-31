@@ -1,6 +1,6 @@
 import React from 'react';
 import { SafeAreaView, Text, View } from 'react-native';
-import { Button, Card } from 'react-native-elements';
+import { Button, Card, Image } from 'react-native-elements';
 import axios from 'axios';
 
 export default class HomeScreen extends React.Component {
@@ -22,6 +22,10 @@ export default class HomeScreen extends React.Component {
         <Card>
           <View>
             <Text>{this.state.books}</Text>
+            <Image
+              source={{ uri: 'https://www.sideshowtoy.com/assets/products/903749-iron-man-mark-xlvi-concept-art-version/lg/marvel-iron-man-mark-xlvi-concept-art-version-sixth-scale-figure-hot-toys-903749-01.jpg' }}
+              style={{ width: 200, height: 200 }}
+            />
           </View>
         </Card>
       </SafeAreaView>
