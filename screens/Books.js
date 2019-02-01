@@ -1,12 +1,16 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Text, View } from 'react-native';
 
-const Books = () => (
-  <View>
-    <Text>
-    setting function
-    </Text>
-  </View>
-);
+import Booklist from './components/Booklist';
 
-export default Books;
+class BookScreen extends React.Component {
+  render() {
+    return (
+      <View>
+        <Booklist />
+      </View>
+    );
+  }
+}
+
+export default BookScreen;

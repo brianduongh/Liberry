@@ -10,21 +10,13 @@ const GRAPHQL_ENDPOINT = `localhost:8080/v1alpha1/graphql`;
 
 
 const httpLink = new HttpLink({
-  uri: `http://${GRAPHQL_ENDPOINT}`,
-  headers: {
-    'x-hasura-access-key': '12345'
-  }
+  uri: `http://${GRAPHQL_ENDPOINT}`
 });
 
 const wsLink = new WebSocketLink({
   uri: `ws://${GRAPHQL_ENDPOINT}`,
   options: {
-    reconnect: true,
-    connectionParams: {
-      headers: {
-        'x-hasura-access-key': '12345'
-      }
-    }
+    reconnect: true
   }
 });
 

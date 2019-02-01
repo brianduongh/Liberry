@@ -35,7 +35,7 @@ export default class BarcodeScannerExample extends React.Component {
   }
 
   handleBarCodeScanned = ({ type, data }) => {
-    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${data}+isbn&key=AIzaSyCekaWwYYUa61_90Z8UVPjdoYvVAWTkqhI`)
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${data}+isbn&key=${APIKEY}`)
     .then(response => {
       alert(response.data.items[0].volumeInfo.title);
     })

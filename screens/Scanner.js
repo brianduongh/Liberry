@@ -3,7 +3,7 @@ import {
   ActivityIndicator,
   View,
 } from 'react-native'
-import Barcode from './Barcode';
+import Barcode from './components/Barcode';
 
 class Scanner extends React.Component {
 
